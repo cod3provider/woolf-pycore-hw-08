@@ -1,32 +1,10 @@
-import pickle
-from address_book import AddressBook
+from storage import save_data, load_data
 from handlers import add_contact, change_phone, show_phone, show_all, add_birthday, show_birthday, birthdays
 from utils import parse_input
 
 
-# def parse_input(user_input):
-#     parts = user_input.split(maxsplit=1)
-#     command = parts[0].lower()
-#     args = parts[1].split() if len(parts) > 1 else []
-#     return command, args
-
-
-def save_data(book, filename="addressbook.pkl"):
-    with open(filename, "wb") as f:
-        pickle.dump(book, f)
-
-
-# Функция для загрузки данных
-def load_data(filename="addressbook.pkl"):
-    try:
-        with open(filename, "rb") as f:
-            return pickle.load(f)
-    except FileNotFoundError:
-        return AddressBook()
-
-
 def main():
-    book = book = load_data()
+    book = load_data()
     print("Welcome to the assistant bot!")
     try:
         while True:
